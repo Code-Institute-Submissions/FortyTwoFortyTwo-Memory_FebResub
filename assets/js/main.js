@@ -4,8 +4,18 @@ $(document).ready(function()
 	{
 		//Set button color to grey
 		SetColor($(this), "grey");
+		
+		//Start the game
+		StartDisplay();
 	});
 });
+
+function StartDisplay()
+{
+	//Select one of the squares at random, then set selected square to green
+	const random = Math.floor(Math.random() * $(".memory-select").length);
+	SetColor($(".memory-select").eq(random), "green");
+};
 
 function SetColor(btn, color)
 {
