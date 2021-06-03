@@ -1,7 +1,16 @@
+let start = true;
+
 $(document).ready(function()
 {
 	$(".memory-start").on("click", function()
 	{
+		//If game already started, don't do anything
+		if (!start)
+			return;
+		
+		//The game has started
+		start = false;
+		
 		//Set button color to grey
 		SetColor($(this), "grey");
 		
