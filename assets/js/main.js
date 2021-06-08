@@ -27,6 +27,15 @@ function StartDisplay()
 	
 	//Add delay to hide green square
 	setTimeout(SetAllSelectColor, 300, "grey");
+	
+	//Done displaying, allow player to select
+	setTimeout(SetNextSelect, 400);
+}
+
+function SetNextSelect()
+{
+	//Make all squares selectable
+	SetAllSelectColor("blue");
 }
 
 function SetColor(btn, color)
