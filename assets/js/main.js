@@ -12,9 +12,21 @@ $(document).ready(function()
 			return;
 
 		select = false;
-
+		
 		//Set all selectable tiles color from blue to grey, so green or red can be set afterward
 		SetAllSelectColor("grey");
+		
+		if ($(this).hasClass("memory-correct"))
+		{
+			//Correct square pressed, set color green
+			SetColor($(this), "green");
+		}
+		else
+		{
+			//Wrong square pressed, set colors and end game
+			SetColor($(".memory-correct"), "green");
+			SetColor($(this), "red");
+		}
 	});
 	
 	$(".memory-start").on("click", function()
@@ -60,6 +72,7 @@ function StartDisplay()
 	else
 	{
 		//Done displaying, allow player to select
+		currentBoxToSelect = 0;
 		SetNextSelect();
 	}
 }
