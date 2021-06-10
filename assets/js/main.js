@@ -1,10 +1,22 @@
 let start = true;
+let select = false;
 let boxToSelect = [];
 let maxBoxToSelect = 0;
 let currentBoxToSelect = 0;
 
 $(document).ready(function()
 {
+	$(".memory-select").on("click", function()
+	{
+		if (!select)	//Not selectable
+			return;
+
+		select = false;
+
+		//Set all selectable tiles color from blue to grey, so green or red can be set afterward
+		SetAllSelectColor("grey");
+	});
+	
 	$(".memory-start").on("click", function()
 	{
 		//If game already started, don't do anything
@@ -58,7 +70,8 @@ function SetNextSelect()
 	SetAllSelectColor("blue");
 	$(".memory-select").removeClass("memory-correct");
 	$(".memory-select").eq(boxToSelect[currentBoxToSelect]).addClass("memory-correct");
-
+	
+	select = true;
 	currentBoxToSelect++;
 }
 
