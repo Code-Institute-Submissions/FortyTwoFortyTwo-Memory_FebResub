@@ -54,8 +54,12 @@ function StartDisplay()
 
 function SetNextSelect()
 {
-	//Make all squares selectable
+	//Make all squares selectable, and give class "memory-correct" to correct square
 	SetAllSelectColor("blue");
+	$(".memory-select").removeClass("memory-correct");
+	$(".memory-select").eq(boxToSelect[currentBoxToSelect]).addClass("memory-correct");
+
+	currentBoxToSelect++;
 }
 
 function SetColor(btn, color)
