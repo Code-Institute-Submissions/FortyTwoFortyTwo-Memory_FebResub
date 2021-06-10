@@ -1,4 +1,5 @@
 let start = true;
+let boxToSelect = [];
 let maxBoxToSelect = 0;
 let currentBoxToSelect = 0;
 
@@ -12,6 +13,7 @@ $(document).ready(function()
 		
 		//The game has started
 		start = false;
+		boxToSelect = [];	//empty
 		maxBoxToSelect = 1;
 		currentBoxToSelect = 0;
 		
@@ -27,9 +29,16 @@ function StartDisplay()
 {
 	if (currentBoxToSelect < maxBoxToSelect)
 	{
-		//Select one of the squares at random, then set selected square to green
-		const random = Math.floor(Math.random() * $(".memory-select").length);
-		SetColor($(".memory-select").eq(random), "green");
+		if (currentBoxToSelect <= boxToSelect.length)
+		{
+			//Add new square from list of already-selected squares to the list
+			const random = Math.floor(Math.random() * $(".memory-select").length);
+			boxToSelect.push(random);
+		}
+		
+		//Color correct square green
+		SetAllSelectColor("grey");
+		SetColor($(".memory-select").eq(boxToSelect[currentBoxToSelect]), "green");
 		
 		//Add delay to hide green square, and set next square to display
 		currentBoxToSelect++;
