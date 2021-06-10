@@ -1,4 +1,6 @@
 let start = true;
+let maxBoxToSelect = 0;
+let currentBoxToSelect = 0;
 
 $(document).ready(function()
 {
@@ -10,6 +12,8 @@ $(document).ready(function()
 		
 		//The game has started
 		start = false;
+		maxBoxToSelect = 1;
+		currentBoxToSelect = 0;
 		
 		//Set button color to grey
 		SetColor($(this), "grey");
@@ -21,15 +25,22 @@ $(document).ready(function()
 
 function StartDisplay()
 {
-	//Select one of the squares at random, then set selected square to green
-	const random = Math.floor(Math.random() * $(".memory-select").length);
-	SetColor($(".memory-select").eq(random), "green");
-	
-	//Add delay to hide green square
-	setTimeout(SetAllSelectColor, 300, "grey");
-	
-	//Done displaying, allow player to select
-	setTimeout(SetNextSelect, 400);
+	if (currentBoxToSelect < maxBoxToSelect)
+	{
+		//Select one of the squares at random, then set selected square to green
+		const random = Math.floor(Math.random() * $(".memory-select").length);
+		SetColor($(".memory-select").eq(random), "green");
+		
+		//Add delay to hide green square, and set next square to display
+		currentBoxToSelect++;
+		setTimeout(SetAllSelectColor, 300, "grey");
+		setTimeout(StartDisplay, 400);
+	}
+	else
+	{
+		//Done displaying, allow player to select
+		SetNextSelect();
+	}
 }
 
 function SetNextSelect()
