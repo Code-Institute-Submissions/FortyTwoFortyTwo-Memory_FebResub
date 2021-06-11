@@ -4,6 +4,7 @@ let boxToSelect = [];
 let maxBoxToSelect = 0;
 let currentBoxToSelect = 0;
 let highestBox = 1;
+let timer = 0;
 
 $(document).ready(function()
 {
@@ -36,6 +37,7 @@ $(document).ready(function()
 				
 				$("#counter-current").text(currentBoxToSelect+1);
 				$("#counter-highest").text(highestBox);
+				timer = 0;	//pause timer
 				
 				currentBoxToSelect = 0;
 				setTimeout(SetAllSelectColor, 250, "grey");
@@ -102,6 +104,7 @@ function StartDisplay()
 		//Done displaying, allow player to select
 		currentBoxToSelect = 0;
 		SetNextSelect();
+		SetTimer(maxBoxToSelect + 5);
 	}
 }
 
@@ -137,4 +140,27 @@ function SetAllSelectColor(color)
 	$(".memory-select").removeClass("color-background-grey");
 
 	$(".memory-select").addClass("color-background-" + color);
-} 
+}
+
+function SetTimer(newTimer)
+{
+	//Set given timer and start ticking down
+	timer = newTimer;
+	DoTimer(timer);
+}
+
+function DoTimer(expectedTimer)
+{
+	if (timer != expectedTimer || !select)	//Check if level ended, if so stop continue counting down
+		return;
+	
+	//Display timer left
+	$("#counter-timer").text(timer);
+	
+	if (timer > 0)
+	{
+		//Tick timer down, wait 1 second to tick again
+		timer--;
+		setTimeout(DoTimer, 1000, timer);
+	}
+}
