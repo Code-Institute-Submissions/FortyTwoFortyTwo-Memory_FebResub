@@ -9,6 +9,7 @@ The website is designed to be simple and easy to use on any platform or scale.
 * [Features](#features)
 * [Designs](#designs)
 * [Technologies Used](#technologies-used)
+* [Testing](#testing)
 * [Known Bugs](#known-bugs)
 
 ## User Experience
@@ -44,6 +45,21 @@ When game starts, squares will flash green to show which squares to press. If th
 * [Git](https://git-scm.com/) for version control.
 * [GitHub](https://github.com/) for the repository to store the files.
 * [GitHub Pages](https://pages.github.com/) to deploy the site.
+
+## Testing
+| Test Label | Test Action | Expected Outcome | Test Outcome |
+| --- | --- | --- | --- |
+| HTML Validator | Check for any warnings or errors at [HTML Validator](https://validator.w3.org/) | No warnings or errors reported | PASS |
+| CSS Validator | Check for any warnings or errors at [CSS Validator](https://jigsaw.w3.org/css-validator/) | No warnings or errors reported | PASS |
+| Opening browser | Opening the website browser by google chrone, microsoft edge and phones | Website can be opened | PASS |
+| Screen Size | resizing screen for any sizes above 300 pixels | Website is responsive when screen changes size to fit | PASS |
+| Selecting grey square | Selecting grey square before pressing start button | Nothing happens | PASS |
+| Selecting start button | Selecting start button colored blue | Round starts, one of the square flashes green, then all squares colored blue | PASS |
+| Selecting start button mid-game | In mid-game, select start button colored grey mid-game | Nothing happens | PASS |
+| Selecting correct square | In mid-game, select blue square that was flashed green | Selected square flashes green, starting next round | PASS |
+| Selecting incorrect square | In mid-game select blue square that was not flashed green | Selected square colored red, correct square colored green, ending the game | PASS |
+| Timer end | In mid-game, do nothing and let timer ends | Timer ticks down every second, ends the game when timer reaches zero | PASS |
+| Restart Game | After game ends, press restart button colored blue | Game restarted and starts again | PASS |
 
 ## Known Bugs
 There are currently no known bugs
