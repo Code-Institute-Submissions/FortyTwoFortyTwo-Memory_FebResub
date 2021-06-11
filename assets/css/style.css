@@ -34,7 +34,6 @@
 
 .memory-select {
 	width: 27.33%;
-	border-color: dark-blue;
 	border-style: solid;
 	margin: 3%;
 	padding-top: 27.33%;
@@ -44,7 +43,6 @@
 	width: 80%;
 	height: 4rem;
 	line-height: 4rem;
-	border-color: dark-blue;
 	border-style: solid;
 	margin: 1rem 1rem 10% 10%;
 	font-size: 2rem;
