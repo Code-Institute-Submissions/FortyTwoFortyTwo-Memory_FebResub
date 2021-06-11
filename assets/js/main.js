@@ -41,6 +41,9 @@ $(document).ready(function()
 			//Wrong square pressed, set colors and end game
 			SetColor($(".memory-correct"), "green");
 			SetColor($(this), "red");
+			
+			start = true;
+			SetColor($(".memory-start"), "blue");
 		}
 	});
 	
@@ -56,8 +59,9 @@ $(document).ready(function()
 		maxBoxToSelect = 1;
 		currentBoxToSelect = 0;
 		
-		//Set button color to grey
+		//Set button color to grey with restart text
 		SetColor($(this), "grey");
+		$(this).text("Restart");
 		
 		//Start the game
 		StartDisplay();
