@@ -7,6 +7,7 @@ The website is designed to be simple and easy to use on any platform or scale.
 ## Index – Table of Contents
 * [User Experience (UX)](#user-experience) 
 * [Features](#features)
+* [Designs](#designs)
 * [Technologies Used](#technologies-used)
 * [Known Bugs](#known-bugs)
 
@@ -27,6 +28,12 @@ Colored blue, pressing it starts the game colored grey and renamed from "Start" 
 
 ##### Memory Game
 When game starts, squares will flash green to show which squares to press. If the user selects wrong, game ends with incorrect square colored red and correct square colored green
+
+## Designs
+![Starting the game](README-files/start.png)
+![Displaying correct squares](README-files/display.png)
+![Selecting the square](README-files/select.png)
+![Selected incorrect square](README-files/fail.png)
 
 ## Technologies used
 * HTML5
