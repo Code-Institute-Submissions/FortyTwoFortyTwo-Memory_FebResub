@@ -20,6 +20,21 @@ $(document).ready(function()
 		{
 			//Correct square pressed, set color green
 			SetColor($(this), "green");
+			
+			if (currentBoxToSelect < maxBoxToSelect)
+			{
+				//Show green color for short time, then reset colors for next select
+				setTimeout(SetNextSelect, 250);
+			}
+			else
+			{
+				//Level complete, update counters and start next level
+				maxBoxToSelect++;
+				
+				currentBoxToSelect = 0;
+				setTimeout(SetAllSelectColor, 250, "grey");
+				setTimeout(StartDisplay, 300);
+			}
 		}
 		else
 		{
