@@ -11,11 +11,12 @@ $(document).ready(function()
 	$(".memory-select").on("click", function()
 	{
 		if (!select)	//Not selectable
+		{
 			return;
-
-		select = false;
+		}
 		
 		//Set all selectable tiles color from blue to grey, so green or red can be set afterward
+		select = false;
 		SetAllSelectColor("grey");
 		
 		if ($(this).hasClass("memory-correct"))
@@ -33,7 +34,9 @@ $(document).ready(function()
 				//Level complete, update counters and start next level
 				maxBoxToSelect++;
 				if (highestBox < maxBoxToSelect)
+				{
 					highestBox = maxBoxToSelect;
+				}
 				
 				$("#counter-current").text(currentBoxToSelect+1);
 				$("#counter-highest").text(highestBox);
@@ -49,9 +52,8 @@ $(document).ready(function()
 			//Wrong square pressed, set colors and end game
 			SetColor($(".memory-correct"), "green");
 			SetColor($(this), "red");
-			
-			start = true;
 			SetColor($(".memory-start"), "blue");
+			select = false;
 		}
 	});
 	
@@ -59,7 +61,9 @@ $(document).ready(function()
 	{
 		//If game already started, don't do anything
 		if (!start)
+		{
 			return;
+		}
 		
 		//The game has started
 		start = false;
@@ -152,16 +156,22 @@ function SetTimer(newTimer)
 function DoTimer(expectedTimer)
 {
 	if (timer != expectedTimer || !select)	//Check if level ended, if so stop continue counting down
+	{
 		return;
+	}
 	
 	//Display timer left
 	const mins = Math.floor(timer / 60);
 	const seconds = timer % 60;
 	
 	if (seconds >= 10)
+	{
 		$("#counter-timer").text(mins + ":" + seconds);
+	}
 	else
+	{
 		$("#counter-timer").text(mins + ":0" + seconds);
+	}
 	
 	if (timer > 0)
 	{
