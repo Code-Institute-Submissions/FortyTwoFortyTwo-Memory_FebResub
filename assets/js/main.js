@@ -169,4 +169,14 @@ function DoTimer(expectedTimer)
 		timer--;
 		setTimeout(DoTimer, 1000, timer);
 	}
+	else
+	{
+		//Reached 0, end the game
+		select = false;
+		SetAllSelectColor("grey");
+		SetColor($(".memory-correct"), "green");
+		
+		start = true;
+		SetColor($(".memory-start"), "blue");
+	}
 }
