@@ -155,7 +155,13 @@ function DoTimer(expectedTimer)
 		return;
 	
 	//Display timer left
-	$("#counter-timer").text(timer);
+	const mins = Math.floor(timer / 60);
+	const seconds = timer % 60;
+	
+	if (seconds >= 10)
+		$("#counter-timer").text(mins + ":" + seconds);
+	else
+		$("#counter-timer").text(mins + ":0" + seconds);
 	
 	if (timer > 0)
 	{
