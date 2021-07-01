@@ -14,7 +14,8 @@ $(document).ready(function()
 	*/
 	$(".memory-select").on("click", function()
 	{
-		if (!select) //Not selectable
+		//Check if button is selectable
+		if (!select)
 		{
 			return;
 		}
@@ -73,9 +74,9 @@ $(document).ready(function()
 			return;
 		}
 		
-		//The game has started
+		//The game has started, reset variables
 		start = false;
-		boxToSelect = []; //empty
+		boxToSelect = [];
 		maxBoxToSelect = 1;
 		currentBoxToSelect = 0;
 		
@@ -184,7 +185,8 @@ Expects to be called every second, process actions on timer tick
 */
 function DoTimer(expectedTimer)
 {
-	if (timer != expectedTimer || !select) //Check if level ended, if so stop continue counting down
+	//Check if level ended, if so stop continue counting down
+	if (timer != expectedTimer || !select)
 	{
 		return;
 	}
