@@ -8,9 +8,13 @@ let timer = 0;
 
 $(document).ready(function()
 {
+	/*
+	Called when one of the square buttons is pressed,
+	process actions on button pressed
+	*/
 	$(".memory-select").on("click", function()
 	{
-		if (!select)	//Not selectable
+		if (!select) //Not selectable
 		{
 			return;
 		}
@@ -38,10 +42,10 @@ $(document).ready(function()
 					highestBox = maxBoxToSelect;
 				}
 				
-				$("#counter-current").text(currentBoxToSelect+1);
+				$("#counter-current").text(currentBoxToSelect + 1);
 				$("#counter-highest").text(highestBox);
-				timer = 0;	//pause timer
 				
+				timer = 0; //pause timer
 				currentBoxToSelect = 0;
 				setTimeout(SetAllSelectColor, 250, "grey");
 				setTimeout(StartDisplay, 300);
@@ -57,6 +61,10 @@ $(document).ready(function()
 		}
 	});
 	
+	/*
+	Called when start/restart button is pressed,
+	process actions on button pressed
+	*/
 	$(".memory-start").on("click", function()
 	{
 		//If game already started, don't do anything
@@ -67,7 +75,7 @@ $(document).ready(function()
 		
 		//The game has started
 		start = false;
-		boxToSelect = [];	//empty
+		boxToSelect = []; //empty
 		maxBoxToSelect = 1;
 		currentBoxToSelect = 0;
 		
@@ -123,6 +131,12 @@ function SetNextSelect()
 	currentBoxToSelect++;
 }
 
+/*
+Clears given button's color class, and set by given color
+
+@param {class} btn - Button class to clear and set color.
+@param {string} color - Color to set given button to.
+*/
 function SetColor(btn, color)
 {
 	//Remove all class colors button may potentally have
@@ -135,6 +149,11 @@ function SetColor(btn, color)
 	btn.addClass("color-background-" + color);
 }
 
+/*
+Clears all button's color class, and set by given color
+
+@param {string} color - Color to set all buttons to.
+*/
 function SetAllSelectColor(color)
 {
 	//Reset all square colors and set all square given color
@@ -146,6 +165,11 @@ function SetAllSelectColor(color)
 	$(".memory-select").addClass("color-background-" + color);
 }
 
+/*
+Sets time to the timer and start ticking down.
+
+@param {number} newTimer - To set time left.
+*/
 function SetTimer(newTimer)
 {
 	//Set given timer and start ticking down
@@ -153,9 +177,14 @@ function SetTimer(newTimer)
 	DoTimer(timer);
 }
 
+/*
+Expects to be called every second, process actions on timer tick
+
+@param {number} expectedTimer - Current timer number to check if still ticking down.
+*/
 function DoTimer(expectedTimer)
 {
-	if (timer != expectedTimer || !select)	//Check if level ended, if so stop continue counting down
+	if (timer != expectedTimer || !select) //Check if level ended, if so stop continue counting down
 	{
 		return;
 	}
