@@ -14,14 +14,27 @@ The website is designed to be simple and easy to use on any platform or scale.
 * [Deployment](#deployment)
 
 ## User Experience
-Only one page is made, the game and explaining how to play it.
-Box color changes on events, grey as its not able to be clicked, blue as able to be clicked, green as correct box and red as incorrect box.
 
-#### Reasons a user may visit the website
-A user looking to play a memory game.
+#### Ideal user
 
-#### Reasons for the website
-To play the memory game
+##### The ideal user for this website is:
+* Anyone from 8 and above.
+* Enjoys memory challenges.
+* Someone who need to test memory skills.
+
+##### Visitors to this website are searching for:
+* Memory game.
+* A way to test memory skills.
+
+##### This project is the best way to help them achieve these things because:
+* It is intuitive.
+* Easy to understand.
+* It is progressively difficult.
+
+##### User stories
+1. As a new user, I want to be able to play the game quickly.
+2. As a new user, I want to challenge myself.
+3. As a new user, I want to test my memory skills.
 
 ## Features
 
